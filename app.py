@@ -45,7 +45,7 @@ try:
 
     st.subheader("🔮 Predict Accommodation Availability")
 
-visitors = st.number_input("Visitors", min_value=0, value=1000)
+    visitors = st.number_input("Visitors", min_value=0, value=1000)
 rating = st.number_input("Rating", min_value=0.0, max_value=5.0, value=3.0)
 revenue = st.number_input("Revenue", min_value=0.0, value=1000.0)
 
@@ -54,10 +54,10 @@ country = st.text_input("Country")
 category = st.text_input("Category")
 
 if st.button("Predict"):
-    st.warning(
+        st.warning(
         "Input form is ready. The model's exact encoded feature columns "
         "must be matched before displaying a reliable prediction."
-    )
+        )
 except Exception as e:
     st.error("Could not load the dataset or model.")
     st.write(str(e))
