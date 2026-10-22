@@ -46,8 +46,8 @@ try:
     st.subheader("🔮 Predict Accommodation Availability")
 
     visitors = st.number_input("Visitors", min_value=0, value=1000)
-rating = st.number_input("Rating", min_value=0.0, max_value=5.0, value=3.0)
-revenue = st.number_input("Revenue", min_value=0.0, value=1000.0)
+    rating = st.number_input("Rating", min_value=0.0, max_value=5.0, value=3.0)
+    revenue = st.number_input("Revenue", min_value=0.0, value=1000.0)
 
 location = st.text_input("Location")
 country = st.text_input("Country")
