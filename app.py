@@ -53,7 +53,7 @@ try:
     country = st.text_input("Country")
     category = st.text_input("Category")
 
-if st.button("Predict"):
+    if st.button("Predict"):
         st.warning(
         "Input form is ready. The model's exact encoded feature columns "
         "must be matched before displaying a reliable prediction."
