@@ -54,10 +54,39 @@ try:
     category = st.text_input("Category")
 
     if st.button("Predict"):
-        st.warning(
-        "Input form is ready. The model's exact encoded feature columns "
-        "must be matched before displaying a reliable prediction."
-        )
+          try:
+              target = "Accommodation Available"
+              training_data = df.drop(columns=[target])
+              training_features = pd.get_dummies(
+                  training_data, dummy_na=True
+              )
+
+              input_data = training_data.iloc[[0]].copy()
+
+              for col, value in {
+                  "Visitors": visitors,
+                  "Rating": rating,
+                  "Revenue": revenue,
+                  "Location": location,
+                  "Country": country,
+                  "Category": category,
+              }.items():
+                  if col in input_data.columns:
+                      input_data.loc[input_data.index[0], col] = value
+
+              input_features = pd.get_dummies(
+                  input_data, dummy_na=True
+              )
+              input_features = input_features.reindex(
+                  columns=training_features.columns,
+                  fill_value=0
+              )
+
+              prediction = model.predict(input_features)
+              st.success(f"Predicted Accommodation Availability: {prediction[0]}")
+
+          except Exception as e:
+              st.error(f"Prediction failed: {e}")
 except Exception as e:
     st.error("Could not load the dataset or model.")
     st.write(str(e))
