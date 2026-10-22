@@ -18,6 +18,8 @@ def load_model():
 
 try:
     df = load_data()
+    st.write("Columns:",
+             df.columns.tolist())
     model = load_model()
 
     st.subheader("📊 Tourism Dataset")
