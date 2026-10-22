@@ -1,10 +1,9 @@
-import streamlit as st
+mport streamlit as st
 import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Tourism Insights", page_icon="🌍")
-
 st.title("🌍 Tourism Insights & Prediction")
 st.write("Explore tourism data and view Decision Tree predictions.")
 
@@ -18,8 +17,6 @@ def load_model():
 
 try:
     df = load_data()
-    st.write("Columns:",
-             df.columns.tolist())
     model = load_model()
 
     st.subheader("📊 Tourism Dataset")
@@ -39,35 +36,14 @@ try:
         st.pyplot(fig)
         plt.close(fig)
     else:
-        st.info("No text category columns were found for the pie chart.")
+        st.info("No text category columns were found.")
 
     st.subheader("🤖 Decision Tree Model")
-    st.write("Model loaded successfully!")
-    st.subheader("🔮 Tourism Prediction")
-
-st.write("Enter tourism details below:")
-
-visitors = st.number_input("Visitors", min_value=0, value=1000)
-rating = st.slider("Rating", 0.0, 5.0, 3.0)
-revenue = st.number_input("Revenue", min_value=0.0, value=1000.0)
-
-location = st.text_input("Location")
-country = st.text_input("Country")
-category = st.text_input("Category")
-accommodation = st.selectbox(
-    "Accommodation Available", ["Yes", "No"]
-)
-
-if st.button("Predict"):
-    st.warning(
-        "Prediction form is ready, but the model's exact training "
-        "columns must be matched before predictions can run."
-    )
+    st.success("Model loaded successfully!")
 
     st.info(
-        "Your saved model is ready to connect to the prediction form. "
-        "We need to confirm the original training features and preprocessing "
-        "before making predictions."
+        "The saved model is loaded. The prediction form will be added "
+        "after confirming the original training features and preprocessing."
     )
 
 except Exception as e:
