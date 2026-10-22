@@ -10,7 +10,7 @@ st.write("Explore tourism data and view Decision Tree predictions.")
 
 @st.cache_data
 def load_data():
-    return pd.read_csv("tourism dataset.csv")
+    return pd.read_csv("tourism_dataset.csv")
 
 @st.cache_resource
 def load_model():
