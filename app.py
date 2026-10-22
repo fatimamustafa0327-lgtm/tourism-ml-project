@@ -43,7 +43,7 @@ try:
 
     st.info("Prediction feature setup")
 
-st.subheader("🔮 Predict Accommodation Availability")
+    st.subheader("🔮 Predict Accommodation Availability")
 
 visitors = st.number_input("Visitors", min_value=0, value=1000)
 rating = st.number_input("Rating", min_value=0.0, max_value=5.0, value=3.0)
