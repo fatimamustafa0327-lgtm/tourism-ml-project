@@ -56,16 +56,12 @@ try:
     if st.button("Predict"):
           try:
               target = "Accommodation Available"
-              training_data = df.drop(
-                   columns=[target],
-                   errors="ignore"
-              )
+              training_data = df.iloc[:, :-1].copy()
               training_features = pd.get_dummies(
                   training_data, dummy_na=True
               )
 
-              input_data = training_data.iloc[[0]].copy()
-
+              input_data = df.iloc[[0], :-1].copy()
               for col, value in {
                   "Visitors": visitors,
                   "Rating": rating,
