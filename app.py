@@ -43,6 +43,26 @@ try:
 
     st.subheader("🤖 Decision Tree Model")
     st.write("Model loaded successfully!")
+    st.subheader("🔮 Tourism Prediction")
+
+st.write("Enter tourism details below:")
+
+visitors = st.number_input("Visitors", min_value=0, value=1000)
+rating = st.slider("Rating", 0.0, 5.0, 3.0)
+revenue = st.number_input("Revenue", min_value=0.0, value=1000.0)
+
+location = st.text_input("Location")
+country = st.text_input("Country")
+category = st.text_input("Category")
+accommodation = st.selectbox(
+    "Accommodation Available", ["Yes", "No"]
+)
+
+if st.button("Predict"):
+    st.warning(
+        "Prediction form is ready, but the model's exact training "
+        "columns must be matched before predictions can run."
+    )
 
     st.info(
         "Your saved model is ready to connect to the prediction form. "
