@@ -58,8 +58,6 @@ if st.button("Predict"):
         "Input form is ready. The model's exact encoded feature columns "
         "must be matched before displaying a reliable prediction."
     )
-    
-
 except Exception as e:
     st.error("Could not load the dataset or model.")
     st.write(str(e))
